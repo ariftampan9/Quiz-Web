@@ -5,18 +5,15 @@ include "connect.php";
 
 <html>
 <head>
-       <title></title>
+       <title>Transaksi</title>
+       <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	    <script type="text/javascript" src="js/jquery.js"></script>
+	    <script type="text/javascript" src="js/bootstrap.js"></script>
 </head>
 <body>
-
-
-
-
-
-
-
-    <table border="1" width="600px" align="center">
-       <thead>
+<h2 align="center">Transaksi</h2>
+    <table class="table" border="1" width="600px" align="center">
+       <thead class="thead-dark">
        <tr>
            <th>Kode Transaksi</th>
            <th>Tanggal Pembelian</th>
@@ -27,13 +24,9 @@ include "connect.php";
        </tr>
        </thead>
 
-       <tbody>
-	   
-	   
-	   
+       <tbody>   
 	   
 <?php
-
 
 $data = mysqli_query($conn,"select * from transaksi 
 INNER join barang
@@ -50,9 +43,6 @@ while($a = mysqli_fetch_array($data)){
 		   <td><?php echo $a['tgl_beli'];?></td>
 		   <td><?php echo $a['nm_pembeli']. "-" .$a['kota'];?></td>
 		   <td><?php echo $a['type']. "-" .$a['merk'];?></td>
-		   
-		   
-		   
 		   <td><?php echo $a['harga'];?></td>  
            
        </tr>
@@ -62,6 +52,6 @@ while($a = mysqli_fetch_array($data)){
 </tbody>
 
 </table>
-<a href='<?php echo "tambah-transaksi.php"?>'>Tambah Transaksi</a>
+<a class="btn btn-primary" href='<?php echo "tambah-transaksi.php"?>'>Tambah Transaksi</a>
 </body>
 </html>

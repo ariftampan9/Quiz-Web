@@ -6,26 +6,32 @@ include "connect.php";
 <html>
 <head>
        <title></title>
+       <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	    <script type="text/javascript" src="js/jquery.js"></script>
+	    <script type="text/javascript" src="js/bootstrap.js"></script>
 </head>
 <body>
 
 <form action="pembeli.php" method="get">
  
- 
+ <h2 align="center">Pembeli</h2>
  
  <label>Field : </label>
-		<select name="field">
+		<select class="custom-select" name="field">
 			<?php $options = array('kd_pembeli', 'nm_pembeli', 'jenis_kelamin', 'alamat', 'kota');
 			foreach ($options as $field) {
 				$selected = @$_POST['field'] == $field ? ' selected="selected"' : '';
 				echo '<option value="' . $field . '"' . $selected . '>' . $field . '</option>';
 			}?>
-		</select>
-		
- <label>Cari :</label>
- <input type="text" name="cari">
+              </select>
+              <br>
+              <br>	
+<div align="right">
+       <label>Cari :</label>
+       <input type="text" name="cari">
+       <input class="btn btn-primary btn-sm" type="submit" value="Cari">
+</div>
  
- <input type="submit" value="Cari">
 </form>
 
 
@@ -36,13 +42,8 @@ if(isset($_GET['cari'])){
 }
 ?>
 
-
-
-
-
-
-    <table border="1" width="600px" align="center">
-       <thead>
+    <table class="table table-hover" border="1" width="600px" align="center">
+       <thead class="thead-dark">
        <tr>
            <th>Nama Pembeli</th>
            <th>Jenis Kelamin</th>
@@ -80,8 +81,9 @@ while($a = mysqli_fetch_array($data)){
 		   
 		   
 		   
-		   <td><a href='<?php echo "pembeli-edit.php?id_pembeli=$a[kd_pembeli]"?>'>Edit</a>
-               <a href='<?php echo "delete-pembeli.php?id_pembeli=$a[kd_pembeli]"?>'>Delete</a></td>  
+		   <td>
+                     <a class="btn btn-warning btn-sm" href='<?php echo "pembeli-edit.php?id_pembeli=$a[kd_pembeli]"?>'>Edit</a>
+                     <a class="btn btn-danger btn-sm" href='<?php echo "delete-pembeli.php?id_pembeli=$a[kd_pembeli]"?>'>Delete</a></td>  
            
        </tr>
 <?php
@@ -90,6 +92,6 @@ while($a = mysqli_fetch_array($data)){
 </tbody>
 
 </table>
-<a href='<?php echo "tambah-pembeli.php"?>'>Tambah Pembeli</a>
+<a class="btn btn-primary" href='<?php echo "tambah-pembeli.php"?>'>Tambah Pembeli</a>
 </body>
 </html>

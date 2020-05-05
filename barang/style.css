@@ -1,0 +1,25 @@
+input[type=submit] {
+    width: 180px;
+    height: 30px;
+    background-color: #4CAF50;
+    color: white;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    height: 30px;
+}
+
+table {
+    border: 0px solid black;
+}
+
+.submitTambahBarang {
+    background-color: black;
+    width: 500px;
+}
